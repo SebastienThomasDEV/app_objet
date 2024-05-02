@@ -25,7 +25,7 @@ public class TestBanque {
                 new Credit(new Date(), 18),
                 new Credit(new Date(), 12)
         };
-        int result = 0;
+        double result = 0;
         for (Operation operation : debits) {
             System.out.println(operation);
             if (Objects.equals(operation.getType(), "CREDIT")) {
