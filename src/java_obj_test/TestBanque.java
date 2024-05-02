@@ -1,7 +1,9 @@
 package java_obj_test;
 
-import java_obj_banque.entities.Compte;
-import java_obj_banque.entities.CompteTaux;
+import java_obj_banque.entities.*;
+
+import java.util.Date;
+import java.util.Objects;
 
 public class TestBanque {
     public static void main(String[] args) {
@@ -11,6 +13,28 @@ public class TestBanque {
         for (int i = 0; i < comptes.length; i++) {
             System.out.println(comptes[i]);
         }
+        Operation[] debits = {
+                new Debit(new Date(), 3.4),
+                new Debit(new Date(), 25),
+                new Debit(new Date(), 18),
+                new Debit(new Date(), 12)
+        };
+        Operation[] credits = {
+                new Credit(new Date(), 3.4),
+                new Credit(new Date(), 25),
+                new Credit(new Date(), 18),
+                new Credit(new Date(), 12)
+        };
+        int result = 0;
+        for (Operation operation : debits) {
+            System.out.println(operation);
+            if (Objects.equals(operation.getType(), "CREDIT")) {
+                result += operation.amount;
+            } else {
+                result -= operation.amount;
+            }
+        }
+        System.out.println(result);
 //        System.out.println(comptes);
     }
 }
