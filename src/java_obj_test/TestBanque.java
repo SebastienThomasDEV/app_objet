@@ -1,7 +1,6 @@
 package java_obj_test;
 
 import java_obj_banque.entities.*;
-
 import java.util.Date;
 import java.util.Objects;
 
